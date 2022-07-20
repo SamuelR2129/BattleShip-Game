@@ -1,5 +1,5 @@
 const createShip = (section, name) => {
-  const position = section;
+  const positions = section;
   const shipName = name;
   const hits = [];
 
@@ -8,13 +8,12 @@ const createShip = (section, name) => {
   };
 
   const isSunk = () => {
-    console.log("pos", position);
-    return position.every((occupiedCell) => {
+    return positions.every((occupiedCell) => {
       return hits.includes(occupiedCell);
     });
   };
 
-  return { hit, isSunk, position, shipName, hits };
+  return { hit, isSunk, positions, shipName, hits };
 };
 
 export default createShip;

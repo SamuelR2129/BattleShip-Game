@@ -9,12 +9,12 @@ const gameBoard = () => {
   if (!board.length) init();
 
   const receiveShot = (location) => {
-    this.board[location].isShot = true;
+    board[location].isShot = true;
   };
 
   const checkIfShotHit = (location) => {
     // return true for hit, false for miss
-    return this.board[location].hasShip;
+    return board[location].hasShip;
   };
 
   const createLocationArray = (location, ship, axis) => {
@@ -30,10 +30,10 @@ const gameBoard = () => {
   const checkCollisions = (locationArray) => {
     // on x axis, if a ship shares this cell with the next, there is a wall collision
     const collisions = [9, 19, 29, 39, 49, 59, 69, 79, 89];
-    if (locationArray.some((loc) => !this.board[loc])) {
+    if (locationArray.some((loc) => !board[loc])) {
       // check if ship placement exceeds board boundaries, which covers y axis
       return false;
-    } else if (locationArray.some((loc) => this.board[loc].hasShip)) {
+    } else if (locationArray.some((loc) => board[loc].hasShip)) {
       // check for collisions with other ships
       return false;
     } else if (
@@ -69,7 +69,7 @@ const gameBoard = () => {
           }
         }
         // test if this location will work, if so, push to the collection of possibilities
-        if (this.checkCollisions(locationArray)) {
+        if (checkCollisions(locationArray)) {
           possibleLocationArrays.push(locationArray);
         }
       }
@@ -83,7 +83,7 @@ const gameBoard = () => {
 
   // this returns a version of the game board that represents what the opponent is allowed to see
   const opponentBoard = () => {
-    return this.board.map((cell) => {
+    return board.map((cell) => {
       return cell.isShot && cell.hasShip
         ? "hit"
         : cell.isShot
