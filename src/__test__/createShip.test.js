@@ -1,4 +1,4 @@
-import createShip from "./createShip";
+import createShip from "../factories/createShip";
 
 describe("attack ship", () => {
   let testCarrier;

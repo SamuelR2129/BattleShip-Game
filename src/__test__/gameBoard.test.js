@@ -46,6 +46,15 @@ describe("Gameboard functions", () => {
     ]);
   });
 
+  it("tells you when ships are all gone or not there", () => {
+    expect(testBoard.anyShipsLeft(testBoard.board)).toEqual(false);
+  });
+
+  it("tells you when ships are still alive", () => {
+    testBoard.board[23] = { hasShip: true, isShot: false };
+    expect(testBoard.anyShipsLeft(testBoard.board)).toEqual(true);
+  });
+
   it("renders the opponent version", () => {
     const arr = [];
     const testBoard = gameBoard();

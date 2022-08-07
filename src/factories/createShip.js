@@ -13,7 +13,13 @@ const createShip = (section, name) => {
     });
   };
 
-  return { hit, isSunk, positions, shipName, hits };
+  const placeShip = (gameboard) => {
+    for (const position of positions) {
+      gameboard.board[position] = { hasShip: true, isShot: false };
+    }
+  };
+
+  return { hit, isSunk, placeShip, positions, shipName, hits };
 };
 
 export default createShip;

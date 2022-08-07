@@ -81,6 +81,13 @@ const gameBoard = () => {
     return findSuitableLocation(randomAxis());
   };
 
+  const anyShipsLeft = (board) => {
+    const areAllTheShipsSunk = board.some(
+      (cell) => cell.hasShip === true && cell.isShot === false
+    );
+    return areAllTheShipsSunk;
+  };
+
   // this returns a version of the game board that represents what the opponent is allowed to see
   const opponentBoard = () => {
     return board.map((cell) => {
@@ -99,6 +106,7 @@ const gameBoard = () => {
     createLocationArray,
     checkCollisions,
     findRandomShipLocation,
+    anyShipsLeft,
     opponentBoard,
   };
 };
