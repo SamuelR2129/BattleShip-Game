@@ -1,11 +1,11 @@
 // callback refers to the computer turn, so that it only executes when this function completes
 const humanTurn = (
-  { dispatch, index, computer, computerTurn, players, checkWinner, playSound },
+  { dispatch, index, computer, computerTurn, players, checkWinner },
   computerTurnArgs
 ) => {
   // don't allow if there's a winner
   if (!checkWinner(players)) {
-    const computerBoard = computer.gameBoard;
+    const computerBoard = computer.gameBoardObject;
     setTimeout(() => {
       if (computerBoard.checkIfShotHit(index)) {
         const newShips = [...computer.ships];
