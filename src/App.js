@@ -1,9 +1,9 @@
 import React from "react";
-import GameWindow from "./components/game_window/GameWindow";
+import GameWindow from "./components/gameWindowComponents/GameWindow";
 import {
   StyledApp,
   GameWindowContainer,
-} from "./components/styled_components/appStyles";
+} from "./components/styledComponents/appStyles";
 import GameController from "./GameController";
 
 function App() {

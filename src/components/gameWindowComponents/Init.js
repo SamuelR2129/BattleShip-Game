@@ -3,7 +3,7 @@ import Player from "../../factories/createPlayers";
 import {
   InitWindow,
   PlayerForm,
-} from "../styled_components/gameControllerStyles";
+} from "../styledComponents/gameControllerStyles";
 import { store } from "../../GameController";
 
 function Init({ setDismount, dismount }) {

@@ -4,10 +4,10 @@ import {
   Cell,
   SetupGridContainer,
   WatersContainer,
-} from "../styled_components/gameControllerStyles";
+} from "../styledComponents/gameControllerStyles";
 import findShipPlacement from "../../helpers/findShipPlacement";
 import ShotMarker from "../icons/ShotMarker";
-import computerTurn from "../../helpers/computerTurn";
+import computerTurns from "../../helpers/computerTurns";
 import checkWinner from "../../helpers/checkWinner";
 import humanTurn from "../../helpers/humanTurn";
 import { store } from "../../GameController";
@@ -32,7 +32,7 @@ function EnemyWatersGrid() {
           dispatch,
           index,
           computer,
-          computerTurn,
+          computerTurns,
           players,
           checkWinner,
         },

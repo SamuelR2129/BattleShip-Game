@@ -2,9 +2,9 @@ import {
   GameBoardGrid,
   Cell,
   SetupGridContainer,
-} from "../styled_components/gameControllerStyles";
+} from "../styledComponents/gameControllerStyles";
 import React, { useState, useContext } from "react";
-import shipTypes from "../../game_helpers/shipTypes";
+import shipTypes from "../../helpers/shipTypes";
 import { store } from "../../GameController";
 
 function CellSelectorGrid({ handlePlaceShip, currentShip, axis }) {

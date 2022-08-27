@@ -9,6 +9,7 @@ const humanTurn = (
     setTimeout(() => {
       if (computerBoard.checkIfShotHit(index)) {
         const newShips = [...computer.ships];
+        //BUG? this logic doesnt make sense
         const hitShip = newShips.find(
           (ship) => ship.name === computerBoard.checkIfShotHit(index)
         );

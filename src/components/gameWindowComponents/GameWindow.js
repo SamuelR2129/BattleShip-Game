@@ -4,7 +4,7 @@ import GameSetup from "./GameSetup";
 import GameStart from "./GameStart";
 import WinnerScreen from "./WinnerScreen";
 import { store } from "../../GameController";
-import { MainWindow } from "../styled_components/gameControllerStyles";
+import { MainWindow } from "../styledComponents/gameControllerStyles";
 
 const GameWindow = () => {
   const state = useContext(store);

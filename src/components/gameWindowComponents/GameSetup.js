@@ -4,12 +4,12 @@ import {
   SetupTitle,
   AxisButton,
   GridOverlayContainer,
-} from "../styled_components/gameControllerStyles";
+} from "../styledComponents/gameControllerStyles";
 import ShipPlacementGrid from "./ShipPlacementGrid";
 import CellSelectorGrid from "./CellSelectorGrid";
-import shipTypes from "../../game_helpers/shipTypes";
-import placePlayerShip from "../../game_helpers/placePlayerShip";
-import placeComputerShips from "../../game_helpers/placeComputerShips";
+import shipTypes from "../../helpers/shipTypes";
+import placePlayerShips from "../../helpers/placePlayerShips";
+import placeComputerShips from "../../helpers/placeComputerShips";
 import { store } from "../../GameController";
 
 function GameSetup({ dismount, setDismount }) {
@@ -46,7 +46,7 @@ function GameSetup({ dismount, setDismount }) {
     );
     // returns true if there are no collisions
     if (gameBoardObject.checkCollisions(locationArray)) {
-      placePlayerShip({
+      placePlayerShips({
         player: players.human,
         locationArray,
         currentShip,
