@@ -11,7 +11,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "Development",
-      template: "./src/index.html",
+      template: "public/index.html",
     }),
   ],
   output: {
@@ -35,5 +35,11 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
+  },
+  devServer: {
+    host: "localhost",
+    port: port,
+    historyApiFallback: true,
+    open: true,
   },
 };

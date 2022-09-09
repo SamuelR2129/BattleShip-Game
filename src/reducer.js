@@ -30,7 +30,7 @@ const reducer = (state, action) => {
     case "SET_SHIP_ON_BOARD": {
       const { locationArray, player, ship } = payload;
       const newState = { ...state };
-      const newBoard = newState.players[player].gameBoard.board.map(
+      const newBoard = newState.players[player].gameBoardObject.board.map(
         (cell, index) => {
           if (locationArray.includes(index)) {
             cell.hasShip = ship.name;
@@ -38,13 +38,13 @@ const reducer = (state, action) => {
           return cell;
         }
       );
-      newState.players[player].gameBoard.board = newBoard;
+      newState.players[player].gameBoardObject.board = newBoard;
       return { ...newState };
     }
     case "SET_BOARD": {
       const newState = { ...state };
       const { player, board } = payload;
-      newState.players[player].gameBoard.board = board;
+      newState.players[player].gameBoardObject.board = board;
       return { ...newState };
     }
     case "SET_MESSAGE": {
@@ -65,7 +65,7 @@ const reducer = (state, action) => {
       const newState = { ...state };
       newState.players[player].fireShot(
         location,
-        newState.players[opponent].gameBoard
+        newState.players[opponent].gameBoardObject
       );
       return { ...newState };
     }

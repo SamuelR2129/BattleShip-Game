@@ -9,7 +9,7 @@ import EnemyWatersGrid from "./EnemyWatersGrid";
 import FriendlyWatersGrid from "./FriendlyWatersGrid";
 import checkWinner from "../../helpers/checkWinner";
 
-function GameStart({ setDismount, playBgSound, playSound }) {
+function GameStart({ setDismount }) {
   const { state, dispatch } = useContext(store);
   const { message } = state;
   const [hudMessage, setHudMessage] = useState("");

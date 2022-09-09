@@ -1,12 +1,69 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Development</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../public/style.css" />
-  <script defer src="bundle.864ffa7342312aef903e.js"></script></head>
-  <body>
-    <div id="red"></div>
-  </body>
-</html>
+<head><script defer src="bundle.1815bbb26b40fee81e43.js"></script></head>Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Module not found: Error: Can't resolve '/home/sam/ship/public/index.html' in '/home/sam/ship'
+  ModuleNotFoundError: Module not found: Error: Can't resolve '/home/sam/ship/public/index.html' in '/home/sam/ship'
+      at /home/sam/ship/node_modules/webpack/lib/Compilation.js:2016:28
+      at /home/sam/ship/node_modules/webpack/lib/NormalModuleFactory.js:798:13
+      at eval (eval at create (/home/sam/ship/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:10:1)
+      at /home/sam/ship/node_modules/webpack/lib/NormalModuleFactory.js:270:22
+      at eval (eval at create (/home/sam/ship/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:9:1)
+      at /home/sam/ship/node_modules/webpack/lib/NormalModuleFactory.js:434:22
+      at /home/sam/ship/node_modules/webpack/lib/NormalModuleFactory.js:116:11
+      at /home/sam/ship/node_modules/webpack/lib/NormalModuleFactory.js:670:25
+      at /home/sam/ship/node_modules/webpack/lib/NormalModuleFactory.js:855:8
+      at /home/sam/ship/node_modules/webpack/lib/NormalModuleFactory.js:975:5
+  
+  - Compilation.js:2016 
+    [ship]/[webpack]/lib/Compilation.js:2016:28
+  
+  - NormalModuleFactory.js:798 
+    [ship]/[webpack]/lib/NormalModuleFactory.js:798:13
+  
+  
+  - NormalModuleFactory.js:270 
+    [ship]/[webpack]/lib/NormalModuleFactory.js:270:22
+  
+  
+  - NormalModuleFactory.js:434 
+    [ship]/[webpack]/lib/NormalModuleFactory.js:434:22
+  
+  - NormalModuleFactory.js:116 
+    [ship]/[webpack]/lib/NormalModuleFactory.js:116:11
+  
+  - NormalModuleFactory.js:670 
+    [ship]/[webpack]/lib/NormalModuleFactory.js:670:25
+  
+  - NormalModuleFactory.js:855 
+    [ship]/[webpack]/lib/NormalModuleFactory.js:855:8
+  
+  - NormalModuleFactory.js:975 
+    [ship]/[webpack]/lib/NormalModuleFactory.js:975:5
+  
+  - child-compiler.js:169 
+    [ship]/[html-webpack-plugin]/lib/child-compiler.js:169:18
+  
+  - Compiler.js:551 finalCallback
+    [ship]/[webpack]/lib/Compiler.js:551:5
+  
+  - Compiler.js:577 
+    [ship]/[webpack]/lib/Compiler.js:577:11
+  
+  - Compiler.js:1196 
+    [ship]/[webpack]/lib/Compiler.js:1196:17
+  
+  
+  - Hook.js:18 Hook.CALL_ASYNC_DELEGATE [as _callAsync]
+    [ship]/[tapable]/lib/Hook.js:18:14
+  
+  - Compiler.js:1192 
+    [ship]/[webpack]/lib/Compiler.js:1192:33
+  
+  - Compilation.js:2787 finalCallback
+    [ship]/[webpack]/lib/Compilation.js:2787:11
+  
+  - Compilation.js:3092 
+    [ship]/[webpack]/lib/Compilation.js:3092:11
+  
+  
+</pre>

@@ -70,7 +70,7 @@ function GameSetup({ dismount, setDismount }) {
         style={{ animation: dismount ? "fadeout 2s" : "fadein 2s" }}
       >
         <SetupTitle>
-          {players.human.name}, Place Your {shipTypes[currentShip].name}:
+          {players.human.playerName}, Place Your {shipTypes[currentShip].name}:
         </SetupTitle>
         <AxisButton onClick={() => setAxis(axis === "x" ? "y" : "x")}>
           AXIS: {axis}

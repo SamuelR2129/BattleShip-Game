@@ -38,7 +38,7 @@ function CellSelectorGrid({ handlePlaceShip, currentShip, axis }) {
   return (
     <SetupGridContainer>
       <GameBoardGrid>
-        {playerBoard.board.map((index) => {
+        {playerBoard.board.map((tile, index) => {
           return (
             <Cell
               key={index}

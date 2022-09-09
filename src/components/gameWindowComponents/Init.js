@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import Player from "../../factories/createPlayers";
+import createPlayer from "../../factories/createPlayers";
 import {
   InitWindow,
   PlayerForm,
@@ -23,7 +23,6 @@ function Init({ setDismount, dismount }) {
     // this does nothing for this function, only if there is an error
     // and needs to re-render. the setState would occur after this function completed
     setName(name.trim());
-
     // can't do if(!name) because setName hasn't yet updated
     if (!name.trim()) {
       setError("Name required");
@@ -36,41 +35,40 @@ function Init({ setDismount, dismount }) {
       setError("");
     }
 
-    const human = new Player(name.trim());
-    const computer = new Player("Computer");
+    const human = createPlayer(name.trim());
+    const computer = createPlayer("Computer");
+
     dispatch({ type: "SET_PLAYERS", payload: { human, computer } });
 
     // this allows for the component to render with
     // the fade out animation into the next app state
     setDismount(true);
+    dispatch({ type: "SET_TIMELINE", payload: "setup" });
   };
 
   // this triggers if the component is fading out into next app state
-  const handleAnimationEnd = () => {
-    if (dismount) dispatch({ type: "SET_TIMELINE", payload: "setup" });
-  };
 
   return (
     <InitWindow>
       <PlayerForm
         style={{ animation: dismount ? "fadeout 1.5s" : "fadein 6s ease-in" }}
         onSubmit={handleSubmit}
-        onAnimationEnd={handleAnimationEnd}
       >
-        <label htmlFor="name">Enter player name:</label>
+        <label style={{ color: "white" }} htmlFor="name">
+          Enter player name:
+        </label>
         <input
           type="text"
           name="name"
           id="name"
           placeholder="Battleship combatant"
           onChange={handleChange}
-          onFocus={handleFocus}
           autoComplete="off"
           value={name}
         />
         {/* displays errors if name is invalid */}
         <p style={{ color: "red" }}>{error}</p>
-        <button type="submit">Start game</button>
+        <input id="playerSubmitButton" type="submit" value="Submit" />
       </PlayerForm>
     </InitWindow>
   );

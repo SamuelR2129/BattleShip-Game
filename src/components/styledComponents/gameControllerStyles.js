@@ -23,7 +23,7 @@ const PlayerForm = styled.form`
   & > * {
     margin-top: 1rem;
   }
-  & > button {
+  & > #playerSubmitButton {
     margin: 1rem auto;
     padding: 1rem;
     cursor: pointer;
@@ -148,14 +148,7 @@ const HudWindow = styled.div`
   width: 70%;
   border: 1px solid #ddd;
   border-radius: 1rem;
-  background: rgb(55, 55, 55);
-  background: linear-gradient(
-    90deg,
-    rgba(55, 55, 55, 1) 0%,
-    rgba(41, 41, 41, 1) 29%,
-    rgba(41, 41, 41, 1) 76%,
-    rgba(56, 56, 56, 1) 100%
-  );
+  background: rgb(114, 106, 249);
   font-family: "Special Elite", monospace;
   font-size: 1.4rem;
   @media (max-width: 1050px) {

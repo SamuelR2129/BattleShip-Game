@@ -7,7 +7,6 @@ const computerTurn = ({
   computer,
   dispatch,
   players,
-  playSound,
 }) => {
   // prevent from running when locked for win conditions
   if (!checkWinner(players)) {

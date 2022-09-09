@@ -1,3 +1,5 @@
+import shipTypes from "../helpers/shipTypes";
+
 const createShip = (section, name) => {
   const positions = section;
   const shipName = name;
@@ -19,7 +21,21 @@ const createShip = (section, name) => {
     }
   };
 
-  return { hit, isSunk, placeShip, positions, shipName, hits };
+  const getComponentWithProps = (props) => {
+    return shipTypes
+      .find((ship) => ship.name === name)
+      .getComponentWithProps(props);
+  };
+
+  return {
+    hit,
+    isSunk,
+    placeShip,
+    getComponentWithProps,
+    positions,
+    shipName,
+    hits,
+  };
 };
 
 export default createShip;

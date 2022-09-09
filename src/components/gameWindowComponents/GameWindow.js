@@ -7,7 +7,7 @@ import { store } from "../../GameController";
 import { MainWindow } from "../styledComponents/gameControllerStyles";
 
 const GameWindow = () => {
-  const state = useContext(store);
+  const { state, dispatch } = useContext(store);
   const { timeline, winner } = state;
   const [dismount, setDismount] = useState(false);
 
@@ -28,9 +28,9 @@ const GameWindow = () => {
     } else if (timeline === "setup") {
       return <GameSetup dismount={dismount} setDismount={setDismountProp} />;
     } else if (winner) {
-      return <WinnerScreen playBgSound={playBgSound} />;
+      return <WinnerScreen />;
     } else if (!winner) {
-      return <GameStart playSound={playSound} setDismount={setDismount} />;
+      return <GameStart setDismount={setDismount} />;
     } else {
       null;
     }
