@@ -13,7 +13,9 @@ const placeComputerShips = (dispatch, gameBoardObject) => {
       tempBoard.findRandomShipLocation(shipType),
       shipType.name
     );
-    ship.positions.forEach((pos) => (tempBoard.board[pos].hasShip = ship.name));
+    ship.positions.forEach(
+      (pos) => (tempBoard.board[pos].hasShip = ship.shipName)
+    );
     ships.push(ship);
   });
 

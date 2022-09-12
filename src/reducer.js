@@ -33,7 +33,7 @@ const reducer = (state, action) => {
       const newBoard = newState.players[player].gameBoardObject.board.map(
         (cell, index) => {
           if (locationArray.includes(index)) {
-            cell.hasShip = ship.name;
+            cell.hasShip = ship.shipName;
           }
           return cell;
         }
@@ -63,7 +63,7 @@ const reducer = (state, action) => {
       const { player, location } = payload;
       const opponent = player === "human" ? "computer" : "player";
       const newState = { ...state };
-      newState.players[player].fireShot(
+      newState.players[player].fireAShot(
         location,
         newState.players[opponent].gameBoardObject
       );

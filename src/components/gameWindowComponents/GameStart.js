@@ -38,9 +38,9 @@ function GameStart({ setDismount }) {
   useEffect(() => {
     dispatch({
       type: "SET_MESSAGE",
-      payload: `Awaiting orders, Admiral ${state.players.human.name}`,
+      payload: `Awaiting orders, Admiral ${state.players.human.playerName}`,
     });
-  }, [dispatch, state.players.human.name]);
+  }, [dispatch, state.players.human.playerName]);
 
   const handleHudSet = (message) => {
     setHudMessage("");

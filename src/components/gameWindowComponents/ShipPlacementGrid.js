@@ -22,7 +22,7 @@ function ShipPlacementGrid() {
               axis: placement.axis,
               sunk: ship.isSunk(),
             };
-            return ship.getComponentWithProps(shipProps);
+            return ship.getShipInfoFromBoard(shipProps);
           } else {
             return null;
           }

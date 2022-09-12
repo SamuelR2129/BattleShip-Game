@@ -1,12 +1,12 @@
 const findShipPlacement = (ship, board) => {
   // check if ship is on board
-  if (board.find((cell) => cell.hasShip === ship.name)) {
+  if (board.find((cell) => cell.hasShip === ship.shipName)) {
     const boardWithIndex = board.map((cell, index) => {
       cell.index = index;
       return cell;
     });
     const shipLocation = boardWithIndex.filter(
-      (cell) => cell.hasShip === ship.name
+      (cell) => cell.hasShip === ship.shipName
     );
     const axis =
       shipLocation[shipLocation.length - 1].index - shipLocation[0].index <= 5

@@ -21,17 +21,17 @@ const createShip = (section, name) => {
     }
   };
 
-  const getComponentWithProps = (props) => {
+  const getShipInfoFromBoard = (props) => {
     return shipTypes
       .find((ship) => ship.name === name)
-      .getComponentWithProps(props);
+      .addShipInfoToTypes(props);
   };
 
   return {
     hit,
     isSunk,
     placeShip,
-    getComponentWithProps,
+    getShipInfoFromBoard,
     positions,
     shipName,
     hits,

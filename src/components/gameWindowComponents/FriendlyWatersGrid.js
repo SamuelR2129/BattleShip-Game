@@ -13,7 +13,7 @@ function FriendlyWatersGrid() {
   const { state } = useContext(store);
   const { timeline } = state;
   const { ships, gameBoardObject } = state.players.human;
-  const { board } = gameBoard;
+  const { board } = gameBoardObject;
 
   const fillCells = () => {
     let arr = [];
@@ -41,7 +41,7 @@ function FriendlyWatersGrid() {
                 axis: placement.axis,
                 sunk: ship.isSunk(),
               };
-              return ship.getComponentWithProps(shipProps);
+              return ship.getShipInfoFromBoard(shipProps);
             } else {
               return null;
             }

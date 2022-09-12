@@ -30,13 +30,6 @@ function GameSetup({ dismount, setDismount }) {
     }
   }, [setDismount, loading]);
 
-  const handleAnimationEnd = () => {
-    // allow for the fadeout
-    if (dismount) {
-      dispatch({ type: "SET_TIMELINE", payload: "game start" });
-    }
-  };
-
   const handlePlaceShip = (location) => {
     const { gameBoardObject } = players.human;
     const locationArray = gameBoardObject.createLocationArray(
@@ -57,6 +50,7 @@ function GameSetup({ dismount, setDismount }) {
         // Computer will place ships
         placeComputerShips(dispatch, state.players.computer.gameBoardObject);
         setDismount(true);
+        dispatch({ type: "SET_TIMELINE", payload: "game start" });
       } else {
         setCurrentShip(currentShip + 1);
       }
@@ -65,10 +59,7 @@ function GameSetup({ dismount, setDismount }) {
 
   return (
     !loading && (
-      <SetupWindow
-        onAnimationEnd={handleAnimationEnd}
-        style={{ animation: dismount ? "fadeout 2s" : "fadein 2s" }}
-      >
+      <SetupWindow style={{ animation: dismount ? "fadeout 2s" : "fadein 2s" }}>
         <SetupTitle>
           {players.human.playerName}, Place Your {shipTypes[currentShip].name}:
         </SetupTitle>

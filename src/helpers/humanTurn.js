@@ -30,7 +30,6 @@ const humanTurn = (
           });
         }
       } else {
-        sound = "shotMiss";
         dispatch({
           type: "SET_MESSAGE",
           payload: "You fire a shot into enemy waters ...... and miss.",
