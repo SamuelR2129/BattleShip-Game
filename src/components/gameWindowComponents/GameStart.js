@@ -19,7 +19,7 @@ function GameStart({ setDismount }) {
       setTimeout(() => {
         dispatch({
           type: "SET_WINNER",
-          payload: checkWinner(state.players).name,
+          payload: null,
         });
       }, 2500);
     }
@@ -52,7 +52,7 @@ function GameStart({ setDismount }) {
       setHudMessage(messageDisplay.join(""));
       counter++;
       if (counter >= messageArray.length) clearInterval(typingMessageEmulator);
-    }, 30);
+    }, 5);
   };
 
   return (

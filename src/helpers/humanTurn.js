@@ -1,6 +1,6 @@
 // callback refers to the computer turn, so that it only executes when this function completes
 const humanTurn = (
-  { dispatch, index, computer, computerTurn, players, checkWinner },
+  { dispatch, index, computer, computerTurns, players, checkWinner },
   computerTurnArgs
 ) => {
   // don't allow if there's a winner
@@ -9,19 +9,19 @@ const humanTurn = (
     setTimeout(() => {
       if (computerBoard.checkIfShotHit(index)) {
         const newShips = [...computer.ships];
-        //BUG? this logic doesnt make sense
         const hitShip = newShips.find(
-          (ship) => ship.name === computerBoard.checkIfShotHit(index)
+          (ship) => ship.shipName === computerBoard.checkIfShotHit(index)
         );
         hitShip.hit(index);
         dispatch({
           type: "SET_SHIP_HITS",
-          payload: { player: "computer", ship: hitShip, hits: hitShip.hits },
+          payload: { playerTag: "computer", ship: hitShip, hits: hitShip.hits },
         });
-        if (hitShip.isSunk()) {
+
+        if (hitShip.isSunk(hitShip.hits)) {
           dispatch({
             type: "SET_MESSAGE",
-            payload: `You fire a shot into enemy waters ...... you sunk their ${hitShip.name}!`,
+            payload: `You fire a shot into enemy waters ...... you sunk their ${hitShip.shipName}!`,
           });
         } else {
           dispatch({
@@ -36,14 +36,18 @@ const humanTurn = (
         });
       }
     }, 0);
+
     // give time for message to populate
     setTimeout(() => {
       dispatch({
         type: "FIRE_SHOT",
-        payload: { player: "human", location: index },
+        payload: {
+          user: "human",
+          location: index,
+        },
       });
       dispatch({ type: "SET_TURN", payload: 1 });
-      computerTurn({
+      computerTurns({
         ...computerTurnArgs,
       });
     }, 1700);

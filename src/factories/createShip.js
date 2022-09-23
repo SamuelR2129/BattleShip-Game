@@ -9,9 +9,9 @@ const createShip = (section, name) => {
     hits.push(index);
   };
 
-  const isSunk = () => {
+  const isSunk = (stateHits) => {
     return positions.every((occupiedCell) => {
-      return hits.includes(occupiedCell);
+      return stateHits.includes(occupiedCell);
     });
   };
 

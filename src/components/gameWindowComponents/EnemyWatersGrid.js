@@ -78,12 +78,12 @@ function EnemyWatersGrid() {
       <SetupGridContainer>
         <GameBoardGrid>
           {computer.ships.map((ship) => {
-            if (ship.isSunk()) {
+            if (ship.isSunk(ship.hits)) {
               const placement = findShipPlacement(ship, computerBoard.board);
               const shipProps = {
                 start: placement.start,
                 axis: placement.axis,
-                sunk: ship.isSunk(),
+                sunk: ship.isSunk(ship.hits),
               };
               return ship.getShipInfoFromBoard(shipProps);
             } else {

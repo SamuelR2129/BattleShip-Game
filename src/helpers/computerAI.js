@@ -18,7 +18,7 @@ const computerAI = (player) => {
   // filter out the shots that have sunk ships
   unsunkShots = unsunkShots.filter((cell) => {
     const hitShip = player.ships.find((ship) => ship.positions.includes(cell));
-    return !hitShip.isSunk();
+    return !hitShip.isSunk(hitShip.hits);
   });
 
   // DETECT SHIPS

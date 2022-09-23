@@ -4,8 +4,8 @@ describe("attack ship", () => {
   let testCarrier;
   let testSubmarine;
   beforeEach(() => {
-    testCarrier = new createShip([0, 1, 2, 3, 4], "carrier");
-    testSubmarine = new createShip([12, 13, 14], "submarine");
+    testCarrier = createShip([0, 1, 2, 3, 4], "carrier");
+    testSubmarine = createShip([12, 13, 14], "submarine");
   });
 
   it("accepts a hit", () => {

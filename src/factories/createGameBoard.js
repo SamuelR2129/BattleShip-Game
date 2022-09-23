@@ -1,11 +1,11 @@
-const gameBoard = () => {
+const gameBoard = (stateBoard) => {
   const init = () => {
     for (let i = 0; i < 100; i++) {
       board.push({ hasShip: false, isShot: false });
     }
   };
 
-  let board = [];
+  let board = stateBoard || [];
   if (!board.length) init();
 
   const receiveShot = (location) => {
@@ -13,7 +13,6 @@ const gameBoard = () => {
   };
 
   const checkIfShotHit = (location) => {
-    // return true for hit, false for miss
     return board[location].hasShip;
   };
 

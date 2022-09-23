@@ -1,6 +1,6 @@
 import computerAI from "./computerAI.js";
 
-const computerTurn = ({
+const computerTurns = ({
   playerBoard,
   setShotTimeout,
   checkWinner,
@@ -24,18 +24,18 @@ const computerTurn = ({
       if (playerBoard.checkIfShotHit(shotLocation)) {
         const newShips = { ...players.human }.ships;
         const hitShip = newShips.find(
-          (ship) => ship.name === playerBoard.checkIfShotHit(shotLocation)
+          (ship) => ship.shipName === playerBoard.checkIfShotHit(shotLocation)
         );
         hitShip.hit(shotLocation);
         // update hits on human ships
         dispatch({
           type: "SET_SHIP_HITS",
-          payload: { player: "human", ship: hitShip, hits: hitShip.hits },
+          payload: { playerTag: "human", ship: hitShip, hits: hitShip.hits },
         });
-        if (hitShip.isSunk()) {
+        if (hitShip.isSunk(hitShip.hits)) {
           dispatch({
             type: "SET_MESSAGE",
-            payload: `The enemy fires a shot into your waters ...... they sunk your ${hitShip.name}!`,
+            payload: `The enemy fires a shot into your waters ...... they sunk your ${hitShip.shipName}!`,
           });
         } else {
           dispatch({
@@ -45,7 +45,6 @@ const computerTurn = ({
           });
         }
       } else {
-        sound = "shotMiss";
         dispatch({
           type: "SET_MESSAGE",
           payload: "The enemy fires a shot into your waters ...... and misses.",
@@ -53,7 +52,7 @@ const computerTurn = ({
       }
       // fire on that spot after message populates
       setTimeout(() => {
-        computer.fireShot(shotLocation, playerBoard);
+        computer.fireAShot(shotLocation, playerBoard);
         dispatch({ type: "SET_TURN", payload: 0 });
         setShotTimeout(false);
       }, 1800);
@@ -61,4 +60,4 @@ const computerTurn = ({
   }
 };
 
-export default computerTurn;
+export default computerTurns;

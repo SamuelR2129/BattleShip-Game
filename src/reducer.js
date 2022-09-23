@@ -20,12 +20,12 @@ const reducer = (state, action) => {
       return { ...newState };
     }
     case "SET_SHIP_HITS": {
-      const { player, ship, hits } = payload;
-      const newState = { ...state };
-      newState.players[player].ships.find(
-        (item) => item.name === ship.name
+      const { playerTag, ship, hits } = payload;
+      const freshState = { ...state };
+      freshState.players[playerTag].ships.find(
+        (vessel) => vessel.shipName === ship.shipName
       ).hits = hits;
-      return { ...newState };
+      return { ...freshState };
     }
     case "SET_SHIP_ON_BOARD": {
       const { locationArray, player, ship } = payload;
@@ -60,14 +60,14 @@ const reducer = (state, action) => {
       };
     }
     case "FIRE_SHOT": {
-      const { player, location } = payload;
-      const opponent = player === "human" ? "computer" : "player";
-      const newState = { ...state };
-      newState.players[player].fireAShot(
+      const { location, user } = payload;
+      const opponent = user === "human" ? "computer" : "player";
+      const reState = { ...state };
+      reState.players[user].fireAShot(
         location,
-        newState.players[opponent].gameBoardObject
+        reState.players[opponent].gameBoardObject
       );
-      return { ...newState };
+      return { ...reState };
     }
     case "SET_TURN": {
       const newState = { ...state };
@@ -75,10 +75,11 @@ const reducer = (state, action) => {
       return { ...newState };
     }
     case "SET_WINNER": {
-      const newState = { ...state };
-      newState.winner = payload;
+      const winnerState = { ...state };
+      winnerState.winner =
+        state.turn === 1 ? state.players.human.playerName : "computer";
       return {
-        ...newState,
+        ...winnerState,
       };
     }
     case "RESET_GAME": {
@@ -95,11 +96,11 @@ const reducer = (state, action) => {
     }
     // for testing
     case "CHEAT_CODE": {
-      const newState = { ...state };
-      newState.players.computer.ships.forEach(
-        (ship) => (ship.hits = ship.position)
+      const cheatState = { ...state };
+      cheatState.players.computer.ships.forEach(
+        (ship) => (ship.hits = ship.positions)
       );
-      return { ...newState };
+      return { ...cheatState };
     }
     default:
       return state;
